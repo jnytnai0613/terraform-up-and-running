@@ -8,11 +8,6 @@ variable "env" {
   description = "環境識別子（dev, stg, prd）"
 }
 
-variable "role" {
-  type        = string
-  description = "ECRリポジトリに配置するイメージのロール（api, batch など）"
-}
-
 variable "iam_role_additional_tags" {
   type        = map(string)
   default     = {}
@@ -32,7 +27,7 @@ variable "iam_role_additional_tags" {
 
 variable "github_organization_name" {
   type        = string
-  description = "GitHubのOrganization名" 
+  description = "GitHubのOrganization名"
 }
 
 variable "github_repository_name" {
