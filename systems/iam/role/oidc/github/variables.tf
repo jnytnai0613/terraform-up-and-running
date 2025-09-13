@@ -31,7 +31,7 @@ variable "github_repository_name" {
 variable "managed_iam_policy_arns" {
   type        = list(string)
   description = "AWSまたはユーザ管理IAMポリシーのARNリスト"
-  default     = [
+  default = [
     "arn:aws:iam::aws:policy/AdministratorAccess"
   ]
 }
