@@ -28,7 +28,6 @@ variable "github_repository_name" {
   default     = "terraform-up-and-running"
 }
 
-/*
 variable "managed_iam_policy_arns" {
   type        = list(string)
   description = "AWSまたはユーザ管理IAMポリシーのARNリスト"
@@ -36,4 +35,3 @@ variable "managed_iam_policy_arns" {
     "arn:aws:iam::aws:policy/AdministratorAccess"
   ]
 }
-*/
