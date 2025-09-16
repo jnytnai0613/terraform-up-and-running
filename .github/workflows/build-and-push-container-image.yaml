@@ -47,4 +47,4 @@ jobs:
         with:
           context: "docker/html"
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/simple-${{ github.event.inputs.environment }}-web:${{ steps.get-image-tag.outputs.image-tag }}
+          tags: ${{ steps.login-ecr.outputs.registry }}/sample-${{ github.event.inputs.environment }}-web:${{ steps.get-image-tag.outputs.image-tag }}
