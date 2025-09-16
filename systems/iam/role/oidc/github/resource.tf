@@ -41,6 +41,7 @@ module "aws_role_oidc_provider" {
   env                      = var.env
   github_organization_name = var.github_organization_name
   github_repository_name   = var.github_repository_name
+
   inline_policy_documents = {
     ECRAuth            = data.aws_iam_policy_document.ecr_auth_policy.json
     PushContainerImage = data.aws_iam_policy_document.ecr_push_policy.json
