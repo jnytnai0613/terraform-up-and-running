@@ -23,6 +23,7 @@ resource "aws_iam_openid_connect_provider" "github" {
   現在はGitHubのOIDCプロバイダーの証明書が自動で取得されているため、
   AWS側でのSHA1フィンガープリントの登録は不要になっています。
   参考：
+  - https://github.blog/changelog/2023-07-13-github-actions-oidc-integration-with-aws-no-longer-requires-pinning-of-intermediate-tls-certificates/
   - https://wandfuldays.com/articles/c7cx_y8_ycc/
   - https://zenn.dev/not75743/articles/60a8f9526ee32b
   - https://github.com/aws-actions/configure-aws-credentials/pull/764/files
