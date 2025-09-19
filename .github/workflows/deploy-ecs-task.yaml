@@ -61,7 +61,7 @@ jobs:
       - name: Download ECS task definition
         id : download-task-definition
         run: |
-          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }}-${{ github.event.inputs.environment }}-task --query taskDefinition --region ${{ env.AWS_REGION_NAME }} > taskdef.json
+          aws ecs describe-task-definition --task-definition ${{ env.SERVICE_NAME }}-${{ github.event.inputs.environment }}-task --query taskDefinition --region ${{ env.AWS_REGION }} > taskdef.json
           if [ "$?" -ne 0 ]; then
             exit 1
           fi

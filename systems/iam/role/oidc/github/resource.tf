@@ -15,8 +15,6 @@ data "aws_ecs_task_definition" "task_definition" {
   task_definition = "${var.service_name}-${var.env}-task"
 }
 
-data "aws_caller_identity" "caller_identity" {}
-
 data "aws_iam_policy_document" "ecr_push_policy" {
   statement {
     effect = "Allow"
@@ -60,6 +58,7 @@ data "aws_iam_policy_document" "ecr_pull_policy" {
 
     actions = [
       "ecr:BatchGetImage",
+      "ecr:DescribeImages",
       "ecr:GetDownloadUrlForLayer"
     ]
 
