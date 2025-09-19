@@ -1,4 +1,5 @@
-FROM nginx:1.21-alpine
+FROM nginx:latest
 
-COPY test.html /usr/share/nginx/html/test.html
-RUN chmod 644 /usr/share/nginx/html/test.html
+COPY ./html /usr/share/nginx/html
+
+EXPOSE 80
