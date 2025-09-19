@@ -77,10 +77,6 @@
             "value": "sample"
         },
         {
-            "key": "ServiceSuffix",
-            "value": ""
-        },
-        {
             "key": "Name",
             "value": "sample-%env-task"
         }
