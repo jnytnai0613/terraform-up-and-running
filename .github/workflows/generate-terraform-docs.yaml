@@ -20,7 +20,8 @@ jobs:
           - modules/iam/role/oidc/github
           - modules/vpc
           - modules/vpc/security_group
-
+    outputs:
+      changed: ${{ steps.set-changed.outputs.changed }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -33,4 +34,24 @@ jobs:
           working-dir: ${{ matrix.directory }}
           config-file: ${{ github.workspace }}/.terraform-docs.yaml
           output-file: README.md
-          git-push: true
+          git-push: false
+
+      - name: Add README to staging
+        run: |
+          git add ${{ matrix.directory }}/README.md
+
+  push-docs:
+    needs: generate-docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Commit and push all README.md
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Terraform docs" || true
+          git push origin ${{ github.event.pull_request.head.ref }}
