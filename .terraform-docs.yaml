@@ -1,6 +1,6 @@
 formatter: "md table"
 
-version: "0.16.0"
+version: "0.20.0"
 
 content: |-
   {{ .Requirements }}
