@@ -16,7 +16,6 @@ jobs:
         uses: terraform-docs/gh-actions@v1
         with:
           working-dir: modules/*
-          recursive: true
           config-file: ${{ github.workspace }}/.terraform-docs.yaml
           output-file: README.md
           git-push: true
