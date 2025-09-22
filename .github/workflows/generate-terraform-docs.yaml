@@ -15,7 +15,7 @@ jobs:
       - name: Generate Terraform docs
         uses: terraform-docs/gh-actions@v1
         with:
-          working-dir: modules/*
+          working-dir: modules
           recursive: true
           config-file: ../../.terraform-docs.yaml
           output-file: README.md
