@@ -1,0 +1,16 @@
+formatter: "md table"
+
+version: "0.16.0"
+
+content: |-
+  {{ .Requirements }}
+  {{ .Providers }}
+  {{ .Modules }}
+  {{ .Resources }}
+  {{ .Inputs }}
+  ## Examples
+  {{ .Outputs }}
+
+output:
+  file: README.md
+  mode: replace
