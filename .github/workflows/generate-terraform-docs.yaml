@@ -1,4 +1,4 @@
-name: Generate Terraform Docs
+name: Generate Terraform Docs on Pull Request
 
 on:
   pull_request:
@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Generate Terraform docs
         uses: terraform-docs/gh-actions@v1
