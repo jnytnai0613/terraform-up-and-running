@@ -46,5 +46,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "docker"
+          platforms: "linux/amd64"
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/sample-${{ github.event.inputs.environment }}-web:${{ steps.get-image-tag.outputs.image-tag }}
