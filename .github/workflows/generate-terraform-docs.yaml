@@ -1,0 +1,19 @@
+name: Generate Terraform Docs
+
+on:
+  pull_request:
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Generate Terraform docs
+        uses: terraform-docs/gh-actions@v1
+        with:
+          working-dir: modules/*
+          config-file: ../.terraform-docs.yaml
+          output-file: README.md
+          git-push: true
