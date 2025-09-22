@@ -9,7 +9,18 @@ jobs:
     strategy:
       matrix:
         directory:
-          - $(find modules -type f -name '*.tf' | xargs -n1 dirname | sort | uniq)
+          - modules/cloudwatch/logs
+          - modules/ecr
+          - modules/ecs/cluster
+          - modules/ecs/iam/roles
+          - modules/ecs/service
+          - modules/ecs/service/alb
+          - modules/ecs/task
+          - modules/iam/provider/oidc/github
+          - modules/iam/role/oidc/github
+          - modules/vpc
+          - modules/vpc/security_group
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
