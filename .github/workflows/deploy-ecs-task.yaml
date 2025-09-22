@@ -48,9 +48,8 @@ jobs:
 
       - name: Check docker image exists
         run: |
-          which aws
-          aws ecr describe-images --repository-name ${{ env.SERVICE_NAME }}-${{ github.event.inputs.environment }}-web \
-          --image-ids imageTag=${{ steps.get-image-tag.outputs.image-tag }} > /dev/null
+          DOCKER_IMAGE_EXISTS=$(aws ecr describe-images --repository-name ${{ env.SERVICE_NAME }}-${{ github.event.inputs.environment }}-web \
+          --image-ids imageTag=${{ steps.get-image-tag.outputs.image-tag }})
           if [ $? -ne 0 ]; then
             exit 1
           fi
