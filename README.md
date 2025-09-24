@@ -29,17 +29,11 @@ terarform init
 terraform apply
 ```
 
-### 5. ALB用Security Groupデプロイ
-ECS Serviceデプロイ時にALB用とECS用のSecurity Groupを作成したいが、ECS用のSecurity GroupでALB用Security Group Arnを許可している。ALB用Security Group Arnはデプロイしないと決まらないため、以下エラーが発生する。  
-> The "for_each" map includes keys derived from resource attributes that cannot be determined until apply, and so Terraform cannot determine the full set of keys that will identify the instances of this resource.
-When working with unknown values in for_each, it's better to define the map keys statically in your configuration and place apply-time results only in the map values.
-Alternatively, you could use the -target planning option to first apply only the resources that the for_each value depends on, and then apply a second time to fully converge.
-
-よって最初に以下コマンドでALB用Security Groupを作成する
+### 5. ALBデプロイ
 ```sh
-cd systems/ecs/service
+cd systems/ecs/service/alb
 terarform init
-terraform apply -target=module.alb_security_group
+terraform apply
 ```
 
 ### 6. ECS Serviceデプロイ
