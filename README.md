@@ -43,7 +43,7 @@ terarform init
 terraform apply
 ```
 
-### 7. GitHub Actions用OIDCロールデプロイ
+### 7. GitHub Actions用OIDCプロバイダデプロイ
 ```sh
 cd systems/iam/provider/oidc/github
 terarform init
