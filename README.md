@@ -33,7 +33,7 @@ terraform apply
 ```sh
 cd systems/ecs/service/alb
 terarform init
-terraform apply -target=module.alb_security_group
+terraform apply
 ```
 
 ### 6. ECS Serviceデプロイ
